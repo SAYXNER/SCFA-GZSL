@@ -1,5 +1,6 @@
 # SCFA-GZSL
 -----Code------
+
 Enhancing Generalized Zero-Shot Learning via Semantic Contrast and Feature Aggregation(SCFA-GZSL)
 The source code of the proposed algorithm in this paper are given in this folder.
 
