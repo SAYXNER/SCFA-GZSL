@@ -17,4 +17,9 @@ Scipy
 The extracted features for AWA datasets are from [[1]](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/zero-shot-learning/feature-generating-networks-for-zero-shot-learning), FLO and CUB datasets are from [[2]](https://github.com/yunlongyu/EPGN). 
 
 ## Preparation Training & Test
-Exemplar commands are listed here for AwA1 dataset.
+Exemplar commands are listed here for AwA1 dataset
+
++ You can
+```
+python ../scripts/train.py --dataset AWA11 --ga 0.5 --nSample 5000 --gpu 1 --lr 0.00003 \ --classifier_lr 0.003 --kl_warmup 0.01  --vae_dec_drop 0.5 --vae_enc_drop 0.4 \ --gen_nepoch 420 --evl_start 200 --evl_interval 400  --manualSeed 6152
+```
