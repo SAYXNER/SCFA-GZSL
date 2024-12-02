@@ -20,7 +20,7 @@ device = torch.device("cuda")
 import torch.autograd as autograd
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', default='AWA2',help='dataset: CUB, AWA2, APY, FLO, SUN')
-parser.add_argument('--dataroot', default='E:\GITHUB\VSCM-GZSL\\SDGZSL_data', help='path to dataset')
+parser.add_argument('--dataroot', default='...', help='path to dataset')
 # False 非直推式
 parser.add_argument('--validation', action='store_true', default=False, help='enable cross validation mode')
 parser.add_argument('--workers', type=int, help='number of data loading workers', default=4)
