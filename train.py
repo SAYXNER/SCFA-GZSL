@@ -96,9 +96,9 @@ def calc_gradient_penalty(netD,real_data, fake_data, input_att):
 def train():
     dataset = DATA_LOADER(opt)
     if opt.zsl:
-        out_dir = 'cVAE_contrast_Relation_center1(AWA2_t=0.3改_ga_0.5_cls_1_center=0.01_bata1_0.5)图/{}/final/ZSL'.format(opt.dataset)
+        out_dir = 'cVAE_contrast_Relation_center/{}/final/ZSL'.format(opt.dataset)
     else:
-        out_dir = 'cVAE_contrast_Relation_center1(AWA2_t=0.3改_ga_0.5_cls_1_center=0.01_bata1_0.5)图/{}/train/GZSL'.format(opt.dataset)
+        out_dir = 'cVAE_contrast_Relation_center/{}/train/GZSL'.format(opt.dataset)
 
     os.makedirs(out_dir, exist_ok=True)
     print("The output dictionary is {}".format(out_dir))
@@ -157,15 +157,15 @@ def train():
             beta = min(opt.kl_warmup*(it/iters), 1)
             gamma = min(opt.tc_warmup * (it / iters), 1)
 
-        blobs = data_layer.forward()  # 在这里拿到一个批次的数据
-        feat_data = blobs['data']  # 该批次的特征
-        labels_numpy = blobs['labels'].astype(int)  # 该批次的标签
-        labels = torch.from_numpy(labels_numpy.astype('int')).cuda()# 该批次的标签到gpu
+        blobs = data_layer.forward()  
+        feat_data = blobs['data'] 
+        labels_numpy = blobs['labels'].astype(int)  
+        labels = torch.from_numpy(labels_numpy.astype('int')).cuda()
 
         contras_criterion = losses.SupConLoss_clear(opt.ins_temp)
         C = np.array([dataset.train_att[i, :] for i in labels])
         C = torch.from_numpy(C.astype('float32')).cuda()
-        X = torch.from_numpy(feat_data).cuda()# 把特征和属性信息都放到gpu上
+        X = torch.from_numpy(feat_data).cuda()
         sample_C = torch.from_numpy(np.array([dataset.train_att[i, :] for i in labels.unique()])).cuda()
         sample_C_n = labels.unique().shape[0]
         sample_label = labels.unique().cuda()
@@ -258,10 +258,6 @@ def train():
                 test_unseen_feature = ae.encoder(dataset.test_unseen_feature.cuda()).cuda()
                 test_seen_feature = ae.encoder(dataset.test_seen_feature.cuda()).cuda()
 
-            #print('test_unseen_label.size()' + str(dataset.test_unseen_label.size()))
-            #print('test_unseen_feature.size()' + str(test_unseen_feature.size()))
-
-            #print(dataset.test_unseen_label)
             train_X = torch.cat((train_feature, gen_feat.cuda()), 0)
             train_Y = torch.cat((dataset.train_label, gen_label + dataset.ntrain_class), 0)
             """ZSL"""
