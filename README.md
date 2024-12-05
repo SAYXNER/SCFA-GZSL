@@ -34,12 +34,21 @@ Exemplar commands are listed here for AwA1 dataset
 ```
 python ../scripts/train.py --dataset AWA1 --ga 0.5 --nSample 5000 --gpu 1 --lr 0.00003 \ --classifier_lr 0.003 --kl_warmup 0.01  --vae_dec_drop 0.5 --vae_enc_drop 0.4 \ --gen_nepoch 420 --evl_start 200 --evl_interval 400  --manualSeed 6152
 ```
++ or
+```
+python scripts/run_awa1.py
+```
+
 Exemplar commands are listed here for AwA2 dataset
 
 + You can
 ```
 python ../scripts/train.py --dataset AWA2 --ga 0.5 --nSample 5000 --gpu 1 --lr 0.00003 \ --classifier_lr 0.003 --kl_warmup 0.01  --vae_dec_drop 0.5 --vae_enc_drop 0.4 \
   --gen_nepoch 420 --evl_start 200 --evl_interval 400  --manualSeed 6152
+```
++ or
+```
+python scripts/run_awa2.py
 ```
 
 Exemplar commands are listed here for CUB dataset
@@ -49,6 +58,10 @@ Exemplar commands are listed here for CUB dataset
 python ../scripts/train.py --dataset CUB_STC  --ga 3 --nSample 1200 --gpu 0 \--lr 0.0001  --classifier_lr 0.005 --gen_nepoch 550 --kl_warmup 0.02 --weight_decay 1e-6 \
   --vae_enc_drop 0.4 --vae_dec_drop 0.5 --ae_drop 0.2 --cls_weight 0.01
 ```
++ or
+```
+python scripts/run_cub.py
+```
 
 Exemplar commands are listed here for FLO dataset
 
@@ -57,6 +70,11 @@ Exemplar commands are listed here for FLO dataset
 python ../scripts/train.py --dataset FLO_EPGN --ga 5 --nSample 1500 --gpu 0 \--lr 0.0001  --classifier_lr 0.005 --kl_warmup 0.01 --gen_nepoch 800 \
   --vae_dec_drop 0.4 --vae_enc_drop 0.4 --ae_drop 0.2
 ```
++ or
+```
+python scripts/run_flo.py
+```
+
 ## Supplementary Experimental Results
 
 ### GZSL
