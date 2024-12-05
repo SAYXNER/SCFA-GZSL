@@ -5,7 +5,7 @@ Enhancing Generalized Zero-Shot Learning through Semantic Contrast and Feature A
 
 The source code of the proposed algorithm in this paper are given in this folder.
 
-![image](Fig.1.png)
+![image](images/Fig.1.png)
 ## Preparation
 ### 1、Requirements
 The implementation runs on
